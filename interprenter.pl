@@ -42,8 +42,8 @@ assign(assign(Id,Eq,Expression,Semi)) -->
  
 expression(expression(Term)) -->
     term(Term).
-expression(expression(Term,(Add_op ; Sub_op),Expression)) -->
-    term(Term), (add_op(Add_op); sub_op(Sub_op)), expression(Expression).
+expression(expression(Term,Add_op,Expression)) -->
+    term(Term), add_op(Add_op), expression(Expression).
 expression(expression(Term,Sub_op,Expression)) -->
     term(Term), sub_op(Sub_op), expression(Expression).
  
@@ -74,13 +74,4 @@ right_paren(right_paren) --> [')'].
 left_curly(left_curly) --> ['{'].
 right_curly(right_curly) --> ['}'].
 semicolon(semicolon) --> [;].
-
-/***
-evaluate(+ParseTree,+VariablesIn,-VariablesOut):-
-    Evaluates a parse-tree and returns the state of the program
-    after evaluation as a list of variables and their values in
-    the form [var = value, ...].
-***/
- 
-/* WRITE YOUR CODE FOR THE EVALUATOR HERE */
  
